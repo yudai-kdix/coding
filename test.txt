@@ -1,0 +1,3 @@
+https://track-test-yudai-d2e4763c5409.herokuapp.com/
+
+curl -X POST https://track-test-yudai-d2e4763c5409.herokuapp.com/signup -H "Content-Type: application/json" -d '{"user_id": "testuser", "password": "Test@1234"}'

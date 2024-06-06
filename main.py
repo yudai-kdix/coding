@@ -21,7 +21,7 @@ def signup():
     password = request.json.get('password', None)
 
     if not username or not password:
-        return jsonify({"messeage": "Account creation failed","cause": "required user_id and password"}), 400
+        return jsonify({"message": "Account creation failed","cause": "required user_id and password"}), 400
 
     if username in users:
         return jsonify({"message": "Account creation failed","cause": "already same user_id is used"}), 400
@@ -41,7 +41,7 @@ def signup():
         "comment": ""
     }
 
-    return jsonify({"message": "Account successfully created", "user": {"user_id": user_id, "nickname": username}}), 201
+    return jsonify({"message": "Account successfully created", "user": {"user_id": user_id, "nickname": username}}), 200
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -68,7 +68,7 @@ def update_user(user_id):
         return auth
     # 認証と異なるuser_idの場合はエラー
     if user_id != auth["user_id"]:
-        return jsonify({"message": "No Permission for Update"}), 400
+        return jsonify({"message": "No Permission for Update"}), 403
     if user_id not in users:
         return jsonify({ "message":"No User found" }), 404
 
