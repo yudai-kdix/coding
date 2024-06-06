@@ -5,7 +5,15 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # ユーザー情報を管理するための辞書
-users = {}
+# テストデータの作成
+users = {
+    "TaroYamada": {
+        "user_id": "TaroYamada",
+        "password": "PaSSwd4TY",
+        "user_name": "たろー",
+        "comment": "僕は元気です"
+    }
+}
 
 @app.route('/signup', methods=['POST'])
 def signup():
